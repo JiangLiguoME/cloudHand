@@ -1,0 +1,8 @@
+run_erl [17121] Thu Nov  1 16:31:59 2018
+Args before exec of shell:
+run_erl [17121] Thu Nov  1 16:31:59 2018
+argv[0] = sh
+run_erl [17121] Thu Nov  1 16:31:59 2018
+argv[1] = -c
+run_erl [17121] Thu Nov  1 16:31:59 2018
+argv[2] = exec "/home/liguo/project/cloudHand/server/emqx/bin/emqx" "console"

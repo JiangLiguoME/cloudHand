@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;stm32_first/Inc/task.h&apos;" deleteContents="false" description="Delete resource &apos;stm32_first/Inc/task.h&apos;" element1="/stm32_first/Inc/task.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1544966413868"/>&#x0A;<refactoring comment="Delete resource &apos;stm32_first/Src/user.cpp&apos;" deleteContents="false" description="Delete resource &apos;stm32_first/Src/user.cpp&apos;" element1="/stm32_first/Src/user.cpp" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1545015587699"/>
+</session>

@@ -1,0 +1,15 @@
+/*
+ * user.cpp
+ *
+ *  Created on: 2018年12月17日
+ *      Author: liguo
+ */
+#include "stm32f1xx_hal.h"
+#include "stm32f1xx_hal_gpio.h"
+#include "user.h"
+
+void task_led1(void* pvParameters)
+{
+	HAL_GPIO_WritePin(GPIOE, GPIO_Pin_5, GPIO_PIN_SET);
+}
+

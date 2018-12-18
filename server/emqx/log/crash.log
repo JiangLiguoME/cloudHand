@@ -1,0 +1,72 @@
+2018-11-01 16:32:18 =CRASH REPORT====
+  crasher:
+    initial call: mysql:init/1
+    pid: <0.1758.0>
+    registered_name: []
+    exception exit: {{1045,<<"28000">>,<<"Access denied for user ''@'localhost' (using password: NO)">>},[{gen_server,init_it,6,[{file,"gen_server.erl"},{line,358}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+    ancestors: [<0.1757.0>,<0.1756.0>,<0.1754.0>,emqx_auth_mysql_sup,<0.1752.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.1757.0>,#Port<0.28>]
+    dictionary: []
+    trap_exit: false
+    status: running
+    heap_size: 610
+    stack_size: 27
+    reductions: 1260
+  neighbours:
+2018-11-01 16:32:18 =SUPERVISOR REPORT====
+     Supervisor: {<0.1756.0>,ecpool_worker_sup}
+     Context:    start_error
+     Reason:     {1045,<<"28000">>,<<"Access denied for user ''@'localhost' (using password: NO)">>}
+     Offender:   [{pid,undefined},{id,{worker,1}},{mfargs,{ecpool_worker,start_link,[emqx_auth_mysql,1,emqx_auth_mysql_cli,[{pool_size,8},{auto_reconnect,1},{host,"127.0.0.1"},{port,3306},{user,[]},{password,[]},{database,"mqtt"},{encoding,utf8},{keep_alive,true}]]}},{restart_type,transient},{shutdown,5000},{child_type,worker}]
+
+2018-11-01 16:32:18 =CRASH REPORT====
+  crasher:
+    initial call: ecpool_worker:init/1
+    pid: <0.1757.0>
+    registered_name: []
+    exception exit: {{1045,<<"28000">>,<<"Access denied for user ''@'localhost' (using password: NO)">>},[{gen_server,init_it,6,[{file,"gen_server.erl"},{line,358}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+    ancestors: [<0.1756.0>,<0.1754.0>,emqx_auth_mysql_sup,<0.1752.0>]
+    message_queue_len: 0
+    messages: []
+    links: [<0.1756.0>,<0.1758.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 376
+    stack_size: 27
+    reductions: 272
+  neighbours:
+2018-11-01 16:32:18 =SUPERVISOR REPORT====
+     Supervisor: {<0.1754.0>,ecpool_pool_sup}
+     Context:    start_error
+     Reason:     {shutdown,{failed_to_start_child,{worker,1},{1045,<<"28000">>,<<"Access denied for user ''@'localhost' (using password: NO)">>}}}
+     Offender:   [{pid,undefined},{id,worker_sup},{mfargs,{ecpool_worker_sup,start_link,[emqx_auth_mysql,emqx_auth_mysql_cli,[{pool_size,8},{auto_reconnect,1},{host,"127.0.0.1"},{port,3306},{user,[]},{password,[]},{database,"mqtt"},{encoding,utf8},{keep_alive,true}]]}},{restart_type,transient},{shutdown,infinity},{child_type,supervisor}]
+
+2018-11-01 16:32:18 =SUPERVISOR REPORT====
+     Supervisor: {local,emqx_auth_mysql_sup}
+     Context:    start_error
+     Reason:     {shutdown,{failed_to_start_child,worker_sup,{shutdown,{failed_to_start_child,{worker,1},{1045,<<"28000">>,<<"Access denied for user ''@'localhost' (using password: NO)">>}}}}}
+     Offender:   [{pid,undefined},{id,emqx_auth_mysql},{mfargs,{ecpool,start_pool,[emqx_auth_mysql,emqx_auth_mysql_cli,[{pool_size,8},{auto_reconnect,1},{host,"127.0.0.1"},{port,3306},{user,[]},{password,[]},{database,"mqtt"},{encoding,utf8},{keep_alive,true}]]}},{restart_type,permanent},{shutdown,5000},{child_type,supervisor}]
+
+2018-11-01 16:32:18 =CRASH REPORT====
+  crasher:
+    initial call: application_master:init/4
+    pid: <0.1751.0>
+    registered_name: []
+    exception exit: {{bad_return,{{emqx_auth_mysql_app,start,[normal,[]]},{'EXIT',{{badmatch,{error,{shutdown,{failed_to_start_child,emqx_auth_mysql,{shutdown,{failed_to_start_child,worker_sup,{shutdown,{failed_to_start_child,{worker,1},{1045,<<"28000">>,<<"Access denied for user ''@'localhost' (using password: NO)">>}}}}}}}}},[{emqx_auth_mysql_app,start,2,[{file,"src/emqx_auth_mysql_app.erl"},{line,31}]},{application_master,start_it_old,4,[{file,"application_master.erl"},{line,277}]}]}}}},[{application_master,init,4,[{file,"application_master.erl"},{line,138}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]}
+    ancestors: [<0.1750.0>]
+    message_queue_len: 1
+    messages: [{'EXIT',<0.1752.0>,normal}]
+    links: [<0.1750.0>,<0.1243.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 610
+    stack_size: 27
+    reductions: 213
+  neighbours:
+2018-11-01 16:32:18 =ERROR REPORT====
+PUT /api/v3/nodes/emqx@127.0.0.1/plugins/emqx_auth_mysql/load error: badarg, stacktrace:
+[{jsx_parser,value,4,[{file,"src/jsx_parser.erl"},{line,163}]},{minirest_handler,jsonify,4,[{file,"src/minirest_handler.erl"},{line,130}]},{minirest,handle_request,2,[{file,"src/minirest.erl"},{line,66}]},{minirest,init,2,[{file,"src/minirest.erl"},{line,51}]},{cowboy_handler,execute,2,[{file,"src/cowboy_handler.erl"},{line,37}]},{cowboy_stream_h,execute,3,[{file,"src/cowboy_stream_h.erl"},{line,274}]},{cowboy_stream_h,request_process,3,[{file,"src/cowboy_stream_h.erl"},{line,252}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,249}]}]

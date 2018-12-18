@@ -1,0 +1,2 @@
+LED2 = PE5
+LED3 = PB5
